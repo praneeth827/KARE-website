@@ -1,0 +1,272 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-bottom: 2px solid #222;
+  padding: 20px;
+}
+
+.logo {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.header h1, .header h2, .header h3 {
+  margin: 0;
+  text-align: left;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ccc;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+input, button {
+  padding: 8px;
+  font-size: 1em;
+}
+
+button {
+  background: #1a237e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3949ab;
+}
+
+#questionPaperPreview {
+  margin-top: 30px;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1.1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #222;
+  padding: 6px 10px;
+  text-align: left;
+}
+
+th {
+  background: #e3e3e3;
+}
+
+.login-body {
+  background: #e3e3e3;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #bbb;
+  text-align: center;
+}
+
+.login-container input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background: #1a237e;
+  color: #fff;
+  padding: 30px 0 0 0;
+  box-shadow: 2px 0 8px #bbb;
+  z-index: 10;
+}
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+}
+/* Sidebar navigation menu improvements */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.sidebar ul li {
+  color: #fff;
+  font-size: 1em;
+  padding: 10px 18px 10px 18px;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 6px;
+  font-family: inherit;
+}
+.sidebar ul li:not(:last-child) {
+  margin-bottom: 4px;
+}
+.sidebar ul li:hover, .sidebar ul li.active {
+  background: #232b6b;
+}
+/* Center the first item if needed */
+.sidebar ul li:first-child {
+  font-weight: bold;
+  font-size: 1.1em;
+  text-align: left;
+  margin-bottom: 10px;
+}
+.sidebar li {
+  padding: 15px 30px;
+  cursor: pointer;
+  font-size: 1.1em;
+  border-left: 4px solid transparent;
+  transition: background 0.2s, border 0.2s;
+}
+.sidebar li.active, .sidebar li:hover {
+  background: #3949ab;
+  border-left: 4px solid #fff;
+}
+.main-content {
+  margin-left: 240px;
+  min-height: 100vh;
+  background: #f8f8f8;
+}
+
+.paper-preview-normal {
+  background: #e6ffe6;
+}
+.paper-preview-medium {
+  background: #fff9cc;
+}
+.paper-preview-high {
+  background: #ffe6f2;
+}
+.collapsible {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+.collapsible > span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  border-left: 4px solid transparent;
+  transition: background 0.2s, border 0.2s;
+}
+.collapsible .icon-semester {
+  font-size: 1.2em;
+}
+.collapsible .arrow {
+  margin-left: auto;
+  font-size: 1em;
+  transition: transform 0.2s;
+}
+.collapsible.open .arrow {
+  transform: rotate(-180deg);
+}
+.submenu {
+  background: #263159;
+  padding: 0 0 0 10px;
+  margin: 0;
+  list-style: none;
+}
+.submenu li {
+  padding: 10px 30px 10px 45px;
+  color: #cfd8dc;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+}
+.submenu input[type="radio"] {
+  accent-color: #1a237e;
+  margin-right: 10px;
+}
+.upload-btn {
+  margin: 6px 8px;
+  padding: 8px 18px;
+  font-size: 1em;
+  background: #232b6b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.upload-btn:hover {
+  background: #1a1f4a;
+}
+#uploadOldPapersSection h2 {
+  margin-bottom: 18px;
+  color: #1a237e;
+}
+#uploadedFilesList {
+  font-size: 0.98em;
+  color: #222;
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto 18px auto;
+}
+#generateFromUploadsBtn {
+  background: #1a237e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 24px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#generateFromUploadsBtn:hover {
+  background: #232b6b;
+} 

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KARE Question Paper Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #questionPaperPreview, #semesterQuestionPaperPreview {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 900px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Menu</h2>
+    <ul>
+      <li class="collapsible" id="nav-generate">
+        <span style="display:flex;align-items:center;gap:6px;">
+          <span>Generate Paper</span>
+          <span class="arrow" id="generate-arrow">&#9660;</span>
+        </span>
+        <ul class="submenu" id="generate-submenu" style="display:none;">
+          <li><label><input type="radio" name="generate-option" id="sidebar-sessional"> Sessional</label></li>
+          <li><label><input type="radio" name="generate-option" id="sidebar-semester"> Semester</label></li>
+        </ul>
+      </li>
+      <li id="nav-manual">Manually Generate Paper</li>
+      <li id="nav-upload">Upload Old Papers</li>
+      <li id="nav-upload">Logout</li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <div class="header">
+      <img src="https://kalasalingam.ac.in/wp-content/uploads/2021/06/Kalasalingam-logo.png" alt="KARE Logo" class="logo">
+      <div>
+        <h1>KALASALINGAM ACADEMY OF RESEARCH AND EDUCATION</h1>
+        <h2>(DEEMED TO BE UNIVERSITY)</h2>
+        <h3>OFFICE OF DEAN – FRESHMAN ENGINEERING</h3>
+      </div>
+    </div>
+    <div class="container" id="mainContainer">
+      <div id="karePaperSystemTitle" style="display:flex;align-items:center;justify-content:center;height:120px;font-size:2.2em;color:#1a237e;opacity:0.2;">KARE PAPER SYSTEM</div>
+      <div id="paperTypeSwitcher" style="margin: 0 auto 30px auto; display:none; justify-content:center; gap:20px;">
+        <button id="btn-sessional">Sessional</button>
+        <button id="btn-semester">Semester</button>
+      </div>
+      <div id="sessionalFormSection" style="display:none;">
+        <form id="paperForm">
+          <div class="form-row">
+            <select id="courseCode" required>
+              <option value="">Course Code</option>
+              <option value="211MAT1303">211MAT1303</option>
+              <option value="211PHY1201">211PHY1201</option>
+              <option value="211CHE1102">211CHE1102</option>
+              <option value="211CSE1401">211CSE1401</option>
+              <option value="211EEE1502">211EEE1502</option>
+              <option value="211ECE1603">211ECE1603</option>
+              <option value="211MEC1704">211MEC1704</option>
+              <option value="211CIV1805">211CIV1805</option>
+            </select>
+            <select id="courseName" required>
+              <option value="">Course Name</option>
+              <option value="Multiple Integration ODE and Complex Variables">Multiple Integration ODE and Complex Variables</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Programming in C">Programming in C</option>
+              <option value="Basic Electrical Engineering">Basic Electrical Engineering</option>
+              <option value="Electronic Devices">Electronic Devices</option>
+              <option value="Engineering Mechanics">Engineering Mechanics</option>
+              <option value="Engineering Graphics">Engineering Graphics</option>
+            </select>
+            <select id="degree" required>
+              <option value="">Degree/Year/Sem.</option>
+              <option value="B.Tech./I/I">B.Tech./I/I</option>
+              <option value="B.Tech./I/II">B.Tech./I/II</option>
+              <option value="B.Tech./II/I">B.Tech./II/I</option>
+              <option value="B.Tech./II/II">B.Tech./II/II</option>
+              <option value="B.Tech./III/I">B.Tech./III/I</option>
+              <option value="B.Tech./III/II">B.Tech./III/II</option>
+              <option value="B.Tech./IV/I">B.Tech./IV/I</option>
+              <option value="B.Tech./IV/II">B.Tech./IV/II</option>
+            </select>
+            <select id="sessional" required>
+              <option value="">Sessional</option>
+              <option value="I">Sessional I</option>
+              <option value="II">Sessional II</option>
+            </select>
+            <select id="semester" required>
+              <option value="">Semester</option>
+              <option value="I">Semester I</option>
+              <option value="II">Semester II</option>
+            </select>
+            <select id="sessionTime" required>
+              <option value="">Session</option>
+              <option value="FN">FN</option>
+              <option value="AN">AN</option>
+            </select>
+            <select id="startTime" required>
+              <option value="">Start Time</option>
+              <option value="09:00">09:00</option>
+              <option value="10:00">10:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+            </select>
+            <select id="endTime" required>
+              <option value="">End Time</option>
+              <option value="10:30">10:30</option>
+              <option value="11:30">11:30</option>
+              <option value="15:30">15:30</option>
+              <option value="16:30">16:30</option>
+            </select>
+            <select id="duration" required>
+              <option value="">Duration</option>
+              <option value="90 Minutes">90 Minutes</option>
+              <option value="120 Minutes">120 Minutes</option>
+            </select>
+            <select id="maxMarks" required>
+              <option value="">Max. Marks</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+            <input type="date" id="dateSession" required placeholder="Date & Session">
+          </div>
+          <div class="form-row">
+            <select id="level" required>
+              <option value="">Level</option>
+              <option value="normal">Normal</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <h3>Part B Pattern</h3>
+          <div class="form-row">
+            <select id="partBPattern" required>
+              <option value="">Select Part B Pattern</option>
+              <option value="5x8">Five 8-mark Questions</option>
+              <option value="3x8+1x16">Three 8-mark + One 16-mark</option>
+              <option value="2x16+1x8">Two 16-mark + One 8-mark</option>
+            </select>
+          </div>
+          <button type="submit">Generate Question Paper</button>
+        </form>
+        <div id="questionPaperPreview"></div>
+        <button id="downloadBtn" style="margin-top:20px;">Download Paper</button>
+      </div>
+      <div id="semesterFormSection" style="display:none;">
+        <form id="semesterPaperForm">
+          <div class="form-row">
+            <select id="semCourseCode" required>
+              <option value="">Course Code</option>
+              <option value="211MAT1303">211MAT1303</option>
+              <option value="211PHY1201">211PHY1201</option>
+              <option value="211CHE1102">211CHE1102</option>
+              <option value="211CSE1401">211CSE1401</option>
+              <option value="211EEE1502">211EEE1502</option>
+              <option value="211ECE1603">211ECE1603</option>
+              <option value="211MEC1704">211MEC1704</option>
+              <option value="211CIV1805">211CIV1805</option>
+            </select>
+            <select id="semCourseName" required>
+              <option value="">Course Name</option>
+              <option value="Multiple Integration ODE and Complex Variables">Multiple Integration ODE and Complex Variables</option>
+              <option value="Physics">Physics</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Programming in C">Programming in C</option>
+              <option value="Basic Electrical Engineering">Basic Electrical Engineering</option>
+              <option value="Electronic Devices">Electronic Devices</option>
+              <option value="Engineering Mechanics">Engineering Mechanics</option>
+              <option value="Engineering Graphics">Engineering Graphics</option>
+            </select>
+            <select id="semDegree" required>
+              <option value="">Degree/Year/Sem.</option>
+              <option value="B.Tech./I/I">B.Tech./I/I</option>
+              <option value="B.Tech./I/II">B.Tech./I/II</option>
+              <option value="B.Tech./II/I">B.Tech./II/I</option>
+              <option value="B.Tech./II/II">B.Tech./II/II</option>
+              <option value="B.Tech./III/I">B.Tech./III/I</option>
+              <option value="B.Tech./III/II">B.Tech./III/II</option>
+              <option value="B.Tech./IV/I">B.Tech./IV/I</option>
+              <option value="B.Tech./IV/II">B.Tech./IV/II</option>
+            </select>
+            <select id="semSemester" required>
+              <option value="">Semester</option>
+              <option value="I">Semester I</option>
+              <option value="II">Semester II</option>
+            </select>
+            <select id="semSessionTime" required>
+              <option value="">Session</option>
+              <option value="FN">FN</option>
+              <option value="AN">AN</option>
+            </select>
+            <select id="semStartTime" required>
+              <option value="">Start Time</option>
+              <option value="09:00">09:00</option>
+              <option value="10:00">10:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+            </select>
+            <select id="semEndTime" required>
+              <option value="">End Time</option>
+              <option value="10:30">10:30</option>
+              <option value="11:30">11:30</option>
+              <option value="15:30">15:30</option>
+              <option value="16:30">16:30</option>
+            </select>
+            <input type="text" value="2 Hours 30 Minutes" readonly style="background:#f4f4f4; color:#222; border:1px solid #ccc; border-radius:4px; padding:8px; width:150px;" title="Duration"/>
+            <input type="text" value="100" readonly style="background:#f4f4f4; color:#222; border:1px solid #ccc; border-radius:4px; padding:8px; width:80px;" title="Max Marks"/>
+            <input type="date" id="semDateSession" required placeholder="Date & Session">
+          </div>
+          <div class="form-row">
+            <select id="semLevel" required>
+              <option value="">Level</option>
+              <option value="normal">Normal</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <h3>Part A (10 x 2 = 20 Marks)</h3>
+          <div id="semesterPartA"></div>
+          <h3>Part B (Choice Questions)</h3>
+          <div id="semesterPartB"></div>
+          <button type="submit">Generate Question Paper</button>
+        </form>
+        <div id="semesterQuestionPaperPreview"></div>
+        <button id="semesterDownloadBtn" style="margin-top:20px;">Download Paper</button>
+      </div>
+    </div>
+    <div id="uploadOldPapersSection" style="display:none; max-width:600px; margin: 30px auto; text-align:center;">
+      <h2>Upload Old Papers</h2>
+      <div id="uploadButtonsContainer">
+        <button class="upload-btn" id="uploadBtn1">Upload Paper 1</button>
+        <button class="upload-btn" id="uploadBtn2">Upload Paper 2</button>
+        <button class="upload-btn" id="uploadBtn3">Upload Paper 3</button>
+        <button class="upload-btn" id="uploadBtn4">Upload Paper 4</button>
+        <button class="upload-btn" id="uploadBtn5">Upload Paper 5</button>
+        <button class="upload-btn" id="uploadBtn6">Upload Paper 6</button>
+        <button class="upload-btn" id="uploadBtn7">Upload Paper 7</button>
+        <button class="upload-btn" id="uploadBtn8">Upload Paper 8</button>
+        <button class="upload-btn" id="uploadBtn9">Upload Paper 9</button>
+        <button class="upload-btn" id="uploadBtn10">Upload Paper 10</button>
+      </div>
+      <input type="file" id="hiddenFileInput" style="display:none;" />
+      <div id="uploadedFilesList" style="margin: 18px 0;"></div>
+      <button id="generateFromUploadsBtn" style="display:none; margin-top:18px;">Generate Paper</button>
+      <div id="generatedFromUploadsPreview"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 
